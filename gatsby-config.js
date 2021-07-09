@@ -1,20 +1,27 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
+const path = require(`path`);
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: "Photo blog",
+  },
   plugins: [
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     {
-      resolve: 'gatsby-plugin-sass',
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: path.join(__dirname, "src/assets/images"),
+      },
+    },
+    {
+      resolve: "gatsby-plugin-sass",
       options: {
         postCssPlugins: [
-          require('tailwindcss'),
-          require('./tailwind.config.js'),
+          require("tailwindcss"),
+          require("./tailwind.config.js"),
         ],
       },
-    }, 
+    },
   ],
-}
+};
