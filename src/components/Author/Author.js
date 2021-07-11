@@ -7,7 +7,7 @@ const query = graphql`
   query {
     imageSharp(fluid: { src: { regex: "/louis/" } }) {
       fluid {
-        src
+        ...GatsbyImageSharpFluid_tracedSVG
       }
     }
   }
