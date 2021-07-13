@@ -1,9 +1,9 @@
-import React from "react";
+import * as React from "react";
 import Hero from "../components/Hero/Hero";
 import Articles from "../components/Articles/Articles";
 
 
-const Home = ({data}) => {
+const Home = () => {
     return(
         <>
             <Hero/>

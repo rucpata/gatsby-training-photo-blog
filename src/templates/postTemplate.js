@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import * as styles from './postTemplate.module.scss';
 
-
 export const query = graphql`
 query ($slug: String!) {
     markdownRemark(frontmatter: {slug: {eq: $slug}}) {
