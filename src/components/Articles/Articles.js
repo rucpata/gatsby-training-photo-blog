@@ -11,6 +11,7 @@ const query = graphql`
           slug
           category
           excerpt
+          date
           thumbnail {
             fluid {
               ...GatsbyDatoCmsFluid_tracedSVG
@@ -32,7 +33,7 @@ export default function Articles() {
             </div>
             <div className='flex flex-wrap '>
                 {data.allDatoCmsArticle.edges.map(({ node }) => {
-                const { title, slug, excerpt, category, thumbnail } = node;
+                const { title, slug, excerpt, category, thumbnail, date } = node;
                 return (
                   <Card
                     key={slug}
@@ -41,6 +42,7 @@ export default function Articles() {
                     title={title}
                     excerpt={excerpt}
                     slug={slug}
+                    date={date}
                   />
                 );
               })}

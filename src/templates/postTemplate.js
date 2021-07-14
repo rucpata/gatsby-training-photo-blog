@@ -10,6 +10,7 @@ export const query = graphql`
       title
       category
       content
+      date
       thumbnail {
         fixed(width: 200, height: 200) {
           ...GatsbyDatoCmsFixed_tracedSVG
@@ -27,6 +28,7 @@ const PostTemplate = ({ data }) => {
     category,
     content,
     thumbnail,
+    date,
   } = data.datoCmsArticle;
 
     return (
@@ -41,6 +43,7 @@ const PostTemplate = ({ data }) => {
                 <div className='flex flex-col m-3 mx-6 justify-start items-start'>
                     <span className='text-blue-600'>{category}</span>
                     <h1 className='text-3xl'>{title}</h1>
+                    <span>{date}</span>
                 </div>
             </div>
             <div dangerouslySetInnerHTML={{ __html: content }}/>
