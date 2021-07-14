@@ -3,28 +3,23 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Card from '../Card/Card';
 
 const query = graphql`
-    query{
-        allMarkdownRemark {
-          edges {
-            node {
-              frontmatter {
-                category
-                date
-                slug
-                title
-                image {
-                  childImageSharp {
-                    fixed{
-                      ...GatsbyImageSharpFixed_tracedSVG
-                    }
-                  }
-                }
-              }
-              excerpt
+  query {
+    allDatoCmsArticle {
+      edges {
+        node {
+          title
+          slug
+          category
+          excerpt
+          thumbnail {
+            fluid {
+              ...GatsbyDatoCmsFluid_tracedSVG
             }
           }
         }
-      }      
+      }
+    }
+  }
 `;
 
 export default function Articles() {
@@ -36,21 +31,19 @@ export default function Articles() {
                 <p className='text-lg text-gray-400'>Lorem, ipsum dolor</p>
             </div>
             <div className='flex flex-wrap '>
-                {data.allMarkdownRemark.edges.map(
-                    ({node: {frontmatter, excerpt}}) => {
-                        const { category, image, title, slug} = frontmatter;
-                        return(
-                            <Card
-                                key={slug}
-                                category={category}
-                                image={image}
-                                title={title}
-                                excerpt={excerpt}
-                                slug={slug}
-                            />
-                        )
-                    }
-                )}
+                {data.allDatoCmsArticle.edges.map(({ node }) => {
+                const { title, slug, excerpt, category, thumbnail } = node;
+                return (
+                  <Card
+                    key={slug}
+                    category={category}
+                    image={thumbnail.fluid}
+                    title={title}
+                    excerpt={excerpt}
+                    slug={slug}
+                  />
+                );
+              })}
             </div>
         </article>
     )

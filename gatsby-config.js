@@ -1,4 +1,5 @@
 const path = require(`path`);
+require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
@@ -29,6 +30,12 @@ module.exports = {
           require("tailwindcss"),
           require("./tailwind.config.js"),
         ],
+      },
+    },
+    {
+      resolve: "gatsby-source-datocms",
+      options: {
+        apiToken: process.env.DATO_API_TOKEN,
       },
     },
   ],

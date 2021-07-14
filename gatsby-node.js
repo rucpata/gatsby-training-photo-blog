@@ -7,20 +7,18 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      allDatoCmsArticle {
         edges {
           node {
-            frontmatter {
-              slug
-            }
+            slug
           }
         }
       }
     }
   `);
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const { slug } = node.frontmatter;
+  result.data.allDatoCmsArticle.edges.forEach(({ node }) => {
+    const { slug } = node;
 
     createPage({
       path: slug,

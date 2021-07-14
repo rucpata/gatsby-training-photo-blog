@@ -8,7 +8,8 @@ export default function Card({image, category, title, slug, excerpt}) {
             <div className='h-full border-2 border-gray-100 rounded-lg overflow-hidden pb-4'>
                 <Img 
                     className='h-48 w-full object-cover object-center'
-                    fixed={image.childImageSharp.fixed}
+                    fluid={image}
+                    alt=''
                 />
                 <div className='p-4'>
                     <p className='text-center text-xs text-gray-400'>{category}</p>
