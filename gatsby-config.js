@@ -3,7 +3,12 @@ require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
-    title: "Photo blog",
+    title: `Photo Blog`,
+    author: `Louis Edwards`,
+    description: `Hi! I’m Louis and I am professional photographer since 2001. I’m writing about cameras, design and photographer stuff`,
+    siteUrl: process.env.SITE_URL,
+    image: `/static/homepage.png`,
+    twitterUsername: `louis_edwards_photo`,
   },
   plugins: [
     "gatsby-plugin-sharp",
