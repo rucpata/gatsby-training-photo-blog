@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 // import styles from './postTemplate.module.scss';
-import SEO from '../components/SEO/SEO';
+// import SEO from '../components/SEO/SEO';
 
 export const query = graphql`
   query($slug: String!) {
@@ -33,14 +33,7 @@ const PostTemplate = ({ data }) => {
   } = data.datoCmsArticle;
 
     return (
-      <>
-
-        <SEO 
-          title={title}
-          description={content}
-          image={thumbnail.src}
-          type="article"
-        />
+      
         <article className='mx-auto flex flex-col w-full justify-center items-center my-24 max-w-3xl'>
             <div className='flex w-full justify-start items-start my-24'>
                 <Img 
@@ -54,10 +47,9 @@ const PostTemplate = ({ data }) => {
                     <span>{date}</span>
                 </div>
             </div>
-            <div dangerouslySetInnerHTML={{ __html: content }}/>
-            
+            <div dangerouslySetInnerHTML={{ __html: content }}/>   
         </article>
-      </>
+      
     )
 };
 

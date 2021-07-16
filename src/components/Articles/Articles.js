@@ -23,10 +23,10 @@ const query = graphql`
   }
 `;
 
-export default function Articles() {
+const Articles = () =>{
     const data = useStaticQuery(query)
     return (
-        <article className='flex flex-col my-24 justify-center w-full'>
+        <section className='flex flex-col my-24 justify-center w-full'>
             <div className='flex flex-col text-center pb-5'>
                 <h1 className='text-3xl pb-15'>Articles</h1>
                 <p className='text-lg text-gray-400'>Lorem, ipsum dolor</p>
@@ -47,6 +47,8 @@ export default function Articles() {
                 );
               })}
             </div>
-        </article>
+        </section>
     )
 }
+
+export default Articles;
