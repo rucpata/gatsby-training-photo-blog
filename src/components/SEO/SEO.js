@@ -22,7 +22,7 @@ const SEO = ({title, description, image, type }) => {
 
     const {
         defaultTitle,
-        titleTemplate,
+        // titleTemplate,
         defaultDescription,
         siteUrl,
         defaultImage,
@@ -40,7 +40,7 @@ const SEO = ({title, description, image, type }) => {
         <Helmet title={seo.title}>
             <meta name='description' content={seo.description}/>
             <meta name='image' content={seo.image}/>
-            <meta property="og:url" content={seo.title}/>
+            <meta property="og:url" content={seo.url}/>
             <meta property="og:title" content={seo.title}/>
             {type === "article" ? (
                 <meta property="og:type" content='article'/>
@@ -58,4 +58,4 @@ const SEO = ({title, description, image, type }) => {
 };
 
 
-export default SEO
+export default SEO;
